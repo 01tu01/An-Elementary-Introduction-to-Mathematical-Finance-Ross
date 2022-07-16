@@ -1,0 +1,75 @@
+\section{布朗运动与几何布朗运动}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \pro\\
+    令$Y(t)=-X(t)(t \geq 0)$，则$Y(0)=-X(0)=0$是一个常数；而
+    \[Y(t+y)-Y(y)=-X(t+y)+X(y)=-[X(t+y)-X(y)],\]
+    由于$X(t+y)-X(y) \sim N(\mu t, t\sigma^2)$，所以$Y(t+y)-Y(y)=-[X(t+y)-X(y)] \sim N(-\mu t, t\sigma^2)$，所以$-X(t)(t \geq 0)$是一个漂移参数为$-\mu$，方差参数为$\sigma^2$的布朗运动.
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $E[X(2)]=E[X(2)-X(0)+X(0)]=E[X(2)-X(0)+10]=10+E[X(2)-X(0)]=10+3\times2=16$.
+        \item $\mathrm{Var}[X(2)]=\mathrm{Var}[X(2)-X(0)+X(0)]=\mathrm{Var}[X(2)-X(0)+10]=\mathrm{Var}[X(2)-X(0)]=2\times9=18$.
+        \item \[P[X(2)>20]=P\left(Z>\frac{20-16}{\sqrt{18}}\right)=1-\Phi(0.9428)=\Phi(-0.9428)=0.1729.\]
+        \item 由于$E[X(0.5)]=10+0.5\times3=11.5,\mathrm{Var}[X(0.5)]=0.5\times9=4.5$，则\[P[X(0.5)>10]=P\left(Z>\frac{10-11.5}{\sqrt{4.5}}\right)=\Phi(0.7071)=0.7602.\]
+    \end{enumerate}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $E[X(1)]=10+E[X(1)-X(0)]=10+3\times1=13$.
+        \item 由于$\displaystyle 2p-1=\frac{\mu}{\sigma}\sqrt{\Delta}=\frac{\sqrt{10}}{10}$，所以$\displaystyle\mathrm{Var}[X(1)]=1\times9\times\left[1-\frac{1}{10}\right]=8.1$.
+        \item $\displaystyle p=\frac{10+\sqrt{10}}{20}$，在0.5时刻，经过了5次变化，所以不适合用正态分布近似. 由于$X(0)=10$，所以5次变化中，增加的次数多于减少的次数，所以
+        \[P[X(0.5)>10]={5 \choose 5}p^5+{5 \choose 4}p^4(1-p)+{5 \choose 3}p^3(1-p)^2 \approx 0.7773.\]
+    \end{enumerate}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $\displaystyle P[S(1)>S(0)]=P\left[\frac{S(1)}{S(0)}>1\right]=P\left[\ln\frac{S(1)}{S(0)}>0\right]=P\left(Z>\frac{0-0.1}{\sqrt{0.2^2}}\right)=\Phi(0.5)=0.6915$.
+        \item $\displaystyle P[S(2)>S(1)>S(0)]=P[S(2)>S(1),S(1)>S(0)]=P[S(2)>S(1)]P[S(1)>S(0)]=\{P[S(1)>S(0)]\}^2=0.6915^2=0.4781$.
+        \item \begin{align*}
+            P[S(3)<S(1)>S(0)]&=P[S(3)<S(1),S(1)>S(0)]=P[S(3)<S(1)]P[S(1)>S(0)]\\
+            &=\Phi(0.5)P\left[\ln\frac{S(3)}{S(1)}<0\right]=\Phi(0.5)P\left(Z<\frac{0-0.2}{\sqrt{2\times0.2^2}}\right)\\
+            &=\Phi(0.5)\Phi(0.7071)=0.5257
+        \end{align*}
+    \end{enumerate}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $\displaystyle P[S(1)>S(0)]=P\left[\frac{S(1)}{S(0)}>1\right]=P\left[\ln\frac{S(1)}{S(0)}>0\right]=P\left(Z>\frac{0-0.1}{\sqrt{0.4^2}}\right)=\Phi(0.25)=0.5987$.
+        \item $\displaystyle P[S(2)>S(1)>S(0)]=P[S(2)>S(1),S(1)>S(0)]=P[S(2)>S(1)]P[S(1)>S(0)]=\{P[S(1)>S(0)]\}^2=0.5987^2=0.3584$.
+        \item \begin{align*}
+            P[S(3)<S(1)>S(0)]&=P[S(3)<S(1),S(1)>S(0)]=P[S(3)<S(1)]P[S(1)>S(0)]\\
+            &=\Phi(0.25)P\left[\ln\frac{S(3)}{S(1)}<0\right]=\Phi(0.25)P\left(Z<\frac{0-0.2}{\sqrt{2\times0.4^2}}\right)\\
+            &=\Phi(0.25)\Phi(0.3536)=0.3821
+        \end{align*}
+    \end{enumerate}
+    \item \sol
+    \begin{align*}
+        E[S(t)]&=E[s\e^{X(t)}]=sE[\e^{X(t)}]=s\e^{\mu t+t\sigma^2/2},\\
+        E[S^2(t)]&=E[s^2\e^{2X(t)}]=s^2E[\e^{2X(t)}]=s^2\e^{2\mu t+2t\sigma^2},\\
+        \mathrm{Var}[S(t)]&=E[S^2(t)]-E^2[S(t)]=s^2\e^{2\mu t+t\sigma^2}(\e^{t\sigma^2}-1).
+    \end{align*}
+    \item \pro\\
+    根据教材有
+    \[P(T_y \leq t)=\e^{2y\mu/\sigma^2}\bar{\Phi}\left(\frac{y+\mu t}{\sigma\sqrt{t}}\right)+\bar{\Phi}\left(\frac{y-\mu t}{\sigma\sqrt{t}}\right),\]
+    所以当$\mu \geq 0$时，
+    \[\lim_{t \to \infty}P(T_y<t)=\e^{2y\mu/\sigma^2}\lim_{t \to \infty}\bar{\Phi}\left(\frac{y+\mu t}{\sigma\sqrt{t}}\right)+\lim_{t \to \infty}\bar{\Phi}\left(\frac{y-\mu t}{\sigma\sqrt{t}}\right)=0\e^{2y\mu/\sigma^2}+1=1,\]
+    当$\mu < 0$时，\[\lim_{t \to \infty}P(T_y<t)=\e^{2y\mu/\sigma^2}\lim_{t \to \infty}\bar{\Phi}\left(\frac{y+\mu t}{\sigma\sqrt{t}}\right)+\lim_{t \to \infty}\bar{\Phi}\left(\frac{y-\mu t}{\sigma\sqrt{t}}\right)=1\e^{2y\mu/\sigma^2}+0=\e^{2y\mu/\sigma^2},\]
+    所以\[P(T_y<\infty)=\begin{cases}
+        1, & \mu \geq 0 \\ \e^{2y\mu/\sigma^2}, & \mu < 0
+    \end{cases}.\]
+    当$\mu < 0$时，
+    \[P(M > y)=P(T_y<\infty)=\e^{2y\mu/\sigma^2},\]
+    所以$M$服从比率为$\displaystyle -\frac{2\mu}{\sigma^2}$的指数分布.
+    \item \sol\\
+    利用$S(t)=s\e^{X(t)}$，则
+    \begin{align*}
+        &P\left(\max_{0 \geq v \leq t}S(v) \leq y\right)=P\left(\max_{0 \leq v \leq t}X(v) \geq \ln\frac{y}{s}\right)\\
+        =&\e^{2\ln\frac{y}{s}\mu/\sigma^2}\bar{\Phi}\left(\frac{\ln\frac{y}{s}+\mu t}{\sigma\sqrt{t}}\right)+\bar{\Phi}\left(\frac{\ln\frac{y}{s}-\mu t}{\sigma\sqrt{t}}\right)\\
+        =&\left(\frac{y}{s}\right)^{2\mu/\sigma^2}\bar{\Phi}\left(\frac{\ln\frac{y}{s}+\mu t}{\sigma\sqrt{t}}\right)+\bar{\Phi}\left(\frac{\ln\frac{y}{s}-\mu t}{\sigma\sqrt{t}}\right)
+    \end{align*}
+    \item \sol\\
+    利用上一题结论，则
+    \begin{align*}
+        &P\left(\max_{0 \leq v \leq 1}S(v) < 1.2S(0)\right)=P\left(\max_{0 \leq v \leq 1}X(v) < \ln 1.2\right)\\
+        =&1-\left(\frac{y}{s}\right)^{2\mu/\sigma^2}\bar{\Phi}\left(\frac{\ln\frac{y}{s}+\mu t}{\sigma\sqrt{t}}\right)-\bar{\Phi}\left(\frac{\ln\frac{y}{s}-\mu t}{\sigma\sqrt{t}}\right)\\
+        =&1-1.2^{2\times0.1/(0.3^2)}\bar{\Phi}\left(\frac{\ln 1.2+0.1}{0.3}\right)-\bar{\Phi}\left(\frac{\ln1.2-0.1}{0.3}\right)\\
+        =&1-1.2^{20/9}\bar{\Phi}(0.9411)-\bar{\Phi}(0.2744)=0.3482
+    \end{align*}
+\end{enumerate}
+\clearpage

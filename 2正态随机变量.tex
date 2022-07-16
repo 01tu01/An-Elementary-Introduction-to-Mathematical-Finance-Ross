@@ -1,0 +1,71 @@
+\section{正态随机变量}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $P(Z < -0.66) = P(Z > 0.66) = 1 - P(Z < 0.66) = 1 - \Phi(0.66) = 1 - 0.7454 = 0.2546$.
+        \item $P(|Z| < 1.64) = 2\Phi(1.64)-1=2 \times 0.9495 -1 = 0.8990$.
+        \item $P(|Z| > 2.20) = 2P(Z > 2.20)=2[1-\Phi(2.20)]=2(1 - 0.9861) = 0.0278$.
+    \end{enumerate}
+    \item \sol\\
+    根据标准正态分布的对称性，易知$x=2$.
+    \item \pro
+    \[P(|Z|>x)=P(Z<-x)+P(Z>x)=2P(Z<x)\quad (x>0).\]
+    \item \sol\\
+    易知：$E(Y)=a+b\mu,\mathrm{Var}(Y)=b^2\sigma^2$，则可得
+    \[\begin{cases}
+        a=0,\\b=1,
+    \end{cases}\quad\begin{cases}
+        a=2\mu,\\b=-1,
+    \end{cases}\]
+    因为$a \neq 0$，所以$a=2\mu,b=-1$，此时$\mathrm{Cov}(X,Y)=b\mathrm{Var}(Y)=-\sigma^2$.
+    \item \sol\\
+    利用$3\sigma$准则，则
+    \begin{enumerate}[label=\alph*)]
+        \item 68\%的值落在1个标准差的范围内，即$127.7 \pm 19.2$.
+        \item 95\%的值落在2个标准差的范围内，即$127.7 \pm 2\times19.2=127.7 \pm 38.4$.
+        \item 99.7\%的值落在3个标准差的范围内，即$127.7 \pm 3\times19.2=127.7 \pm 57.6$.
+    \end{enumerate}
+    \item \sol\\
+    设两节电池的寿命分别为$X_1,X_2$，且均独立同分布于$N(400,50^2)$，则
+    \begin{enumerate}[label=\alph*)]
+        \item $X_1+X_2 \sim N(800, 2\times50^2)$，则
+        \[P(X_1+X_2>760)=P\left(Z>\frac{760-800}{50\sqrt{2}}\right)=\Phi\left(\frac{2\sqrt{2}}{5}\right)\approx 0.7142.\]
+        \item $X_2-X_1 \sim N(0, 2\times50^2)$，则
+        \[P(X_2-X_1>25)=P\left(Z>\frac{25-0}{50\sqrt{2}}\right)=1-\Phi\left(\frac{\sqrt{2}}{4}\right)\approx 0.3618.\]
+        \item $X_1-X_2 \sim N(0, 2\times50^2)$，则
+        \[P(|X_1-X_2|>25)=2P(X_2-X_1>25)\approx 0.7236.\]
+    \end{enumerate}
+    \item \sol\\
+    记$X_i$为冲洗第$i$张照片的时间，$\displaystyle X=\sum_{i=1}^{100} X_i$，所以$X \sim N(1800,100)$，则
+    \begin{enumerate}[label=\alph*)]
+        \item \[P(X>1710)=P\left(Z>\frac{1710-1800}{10}\right)=\Phi(9)\approx 1.\]
+        \item \[P(1690<X<1710)=P\left(\frac{1690-1800}{10}<Z<\frac{1710-1800}{10}\right)=\Phi(-9)-\Phi(-11)=\Phi(11)-\Phi(9)\approx 0.\]
+    \end{enumerate}
+    \item \sol\\
+    记$X_i$为第$i$位乘客的飞行距离，$\displaystyle X=\sum_{i=1}^{30} X_i$，所以$X \sim N(750000,30\times12000^2)$，则
+    \begin{enumerate}[label=\alph*)]
+        \item \[P\left(\frac{X}{30}>25000\right)=P\left(Z>\frac{25000-25000}{12000\sqrt{30}}\right)=\Phi(0)=0.5.\]
+        \item \[P\left(23000<\frac{X}{30}<27000\right)=2\Phi\left(\frac{5}{\sqrt{30}}\right)-1\approx 0.6388.\]
+    \end{enumerate}
+    \item \sol\\
+    记$S_i$为$i$单位时间后的股价，定义$\displaystyle X_i=\frac{S_{i+1}}{S_i}$，即 $\displaystyle X_i = \begin{cases}
+        u, & \text{概率为}p \\ d, & \text{概率为}1-p
+    \end{cases} \quad (i=0,1,2,\cdots),$\\
+    所以所求为\[P\left(\frac{S_{1000}}{S_0}>1.3\right)=P\left(\prod_{i=0}^{999}X_i>1.3\right)=P\left(\sum_{i=0}^{999} \ln X_i > \ln 1.3\right),\]
+    由于
+    \begin{align*}
+        E\left(\sum_{i=0}^{999} \ln X_i\right)&=1000E(\ln X_i)=1000[p\ln u+(1-p)\ln d] \approx 1.3787,\\
+        \mathrm{Var}\left(\sum_{i=0}^{999} \ln X_i\right)&=1000\mathrm{Var}(\ln X_i)=1000\{p\ln^2 u+(1-p)\ln^2 d-[p\ln u+(1-p)\ln d]^2\} \approx 0.1206,
+    \end{align*}
+    所以
+    \[P\left(\frac{S_{1000}}{S_0}>1.3\right)=P\left(\sum_{i=0}^{999} \ln X_i > \ln 1.3\right) \approx P\left(Z>\frac{\ln 1.3-1.3787}{\sqrt{0.1206}}\right) \approx \Phi(3.2146) \approx 0.9993.\]
+    \item \sol\\
+    记$X_i$为第$i$个时间段股价的变化，$\displaystyle X=\sum_{i=1}^{700} X_i$，则
+    \begin{align*}
+        E(X)&=700E(X_i)=700(-0.39+0.41) = 14,\\
+        \mathrm{Var}(X)&=700\mathrm{Var}(X_i)=700(0.39+0.41-0.02^2) = 559.72,
+    \end{align*}
+    所以
+    \[P(X>10)=P\left(Z>\frac{10-14}{\sqrt{559.72}}\right) \approx \Phi(0.1691)=0.5671.\]
+\end{enumerate}
+\clearpage

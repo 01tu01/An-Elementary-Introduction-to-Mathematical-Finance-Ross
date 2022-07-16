@@ -1,0 +1,142 @@
+\section{概率论}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $P(\text{至少4个错误})=1-p_0-p_1-p_2-p_3=1-0.20-0.35-0.25-0.15=0.05$.
+        \item $P(\text{至多2个错误})=p_0+p_1+p_2=0.20+0.35+0.25=0.80$.
+    \end{enumerate}
+    \item \sol\\
+    记多云为$C$，雨天为$R$，则
+    \[P(C \cup R) = P(C) + P(R) - P(C \cap R)=0.40 + 0.30 - 0.20 = 0.50.\]
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $\displaystyle P(\text{2人均为女士})=\frac{8}{14}\times\frac{7}{13}=\frac{4}{13}$.
+        \item $\displaystyle P(\text{2人均为男士})=\frac{6}{14}\times\frac{5}{13}=\frac{15}{91}$.
+        \item $\displaystyle P(\text{一位男士和一位女士})=\frac{6}{14}\times\frac{8}{13}+\frac{8}{14}\times\frac{6}{13}=\frac{48}{91}$.
+    \end{enumerate}
+    \item \sol\\
+    记会国际象棋为$C$，会打桥牌为$B$，则
+    \begin{enumerate}[label=\alph*)]
+        \item $\displaystyle P(C|B)=\frac{P(C \cap B)}{P(B)}=\frac{27/120}{(58+27)/120}=\frac{27}{85}$.
+        \item $\displaystyle P(B|C)=\frac{P(C \cap B)}{P(C)}=\frac{27/120}{(35+27)/120}=\frac{27}{62}$.
+    \end{enumerate}
+    \item \sol {\kaishu \textcolor{blue}{注意：b)问由于翻译原因，容易理解为并列关系，但根据英文原文，应该理解为在没有发病的条件下，求携带一个CF基因的条件概率.}}
+    \begin{enumerate}[label=\alph*)]
+        \item $\displaystyle \frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$.
+        \item 由于他有兄弟姐妹死于这种疾病，说明其父母各携带一个CF基因，则
+        \[P(\text{携带一个CF基因} \big | \text{没有发病})=\frac{P(\text{携带一个CF基因} \cap \text{没有发病})}{P(\text{没有发病})}=\frac{{2 \choose 1}(1/2)^2}{1-1/4}=\frac{2}{3}.\]
+    \end{enumerate}
+    \item \sol
+    \[P(\text{都是A} \big | \text{花色不同})=\frac{P(\text{都是A} \cap \text{花色不同})}{P(\text{花色不同})}=\frac{P(\text{都是A})}{P(\text{花色不同})}=\frac{\frac{4}{52}\frac{3}{51}}{{4 \choose 1}\frac{13}{52}\frac{39}{51}}=\frac{1}{169}.\]
+    \item \pro
+    \begin{enumerate}[label=\alph*)]
+        \item \[P(AB^c)=P(A)-P(AB)=P(A)-P(A)P(B)=P(A)[1-P(B)]=P(A)P(B^c).\]
+        \item \[P(A^cB^c)=P(B^cA^c)=P(B^c)-P(AB^c)=P(B^c)-P(A)P(B^c)=P(B^c)[1-P(A)]=P(A^c)P(B^c).\]
+    \end{enumerate}
+    \item \sol {\kaishu \textcolor{blue}{注意：由于翻译原因，“可以进行”指的是一定会进行；“以此类推”是多余的，即两局必结束；$X$不是赢的局数，而是赢的(钱)数.}}\\
+    记$R_i$为第$i$次的结果为红，则
+    \begin{enumerate}[label=\alph*)]
+        \item 易知$X=1,-3$，则
+        \begin{align*}
+            P(X=1)&=P(R_1)+P(R_1^c \cap R_2)=\frac{18}{38}+\frac{20}{38}\times\frac{18}{38}=\frac{261}{361},\\
+            P(X=-3)&=P(R_1^c \cap R_2^c)=\frac{20}{38}\times\frac{20}{38}=\frac{100}{361}.
+        \end{align*}
+        所以$\displaystyle P(X>0)=P(X=1)=\frac{261}{361}$.
+        \item $\displaystyle E(X)=1\times\frac{261}{361}-3\times\frac{100}{361}=-\frac{39}{361}$.
+    \end{enumerate}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $E(X) > E(Y)$.
+        \item
+        \begin{align*}
+            E(X)&=\frac{39}{152}\times39+\frac{33}{152}\times33+\frac{46}{152}\times46+\frac{34}{152}\times34=\frac{2941}{76},\\
+            E(Y)&=\frac{39+33+46+34}{4}=38<\frac{2941}{76}.
+        \end{align*}
+    \end{enumerate}
+    \item \sol\\
+    易知，比赛总局数$X=2,3$，则
+    \begin{align*}
+        E(X)&=2\times{2 \choose 1}\times\frac{1}{2}\times\frac{1}{2}+3\times\left[1-{2 \choose 1}\times\frac{1}{2}\times\frac{1}{2}\right]=\frac{5}{2},\\
+        \mathrm{Var}(X)&=2^2\times{2 \choose 1}\times\frac{1}{2}\times\frac{1}{2}+3^2\times\left[1-{2 \choose 1}\times\frac{1}{2}\times\frac{1}{2}\right]-\left(\frac{5}{2}\right)^2=\frac{1}{4}.
+    \end{align*}
+    \item \pro\\
+    记$\mu = E(X)$，则
+    \begin{align*}
+        \mathrm{Var}(X)&=E[(X-\mu)^2]=E(X^2-2\mu X+\mu^2)\\
+        &=E(X^2)-2\mu E(X)+\mu^2=E(X^2)-2\mu^2+\mu^2\\
+        &=E(X^2)-\mu^2=E(X^2)-[E(X)]^2
+    \end{align*}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $E(X) = 5000, \mathrm{Var}(X)=0, \sigma(X) = 0$.
+        \item
+        \begin{align*}
+            E(Y)&=0.3\times25000+0.7\times0=7500,\\
+            \mathrm{Var}(Y)&=0.3\times25000^2+0.7\times0-7500^2=1.3125\times10^8,\\
+            \sigma(Y)&=\sqrt{1.3125}\times10^4.
+        \end{align*}
+    \end{enumerate}
+    \item \pro
+    \begin{enumerate}[label=\alph*)]
+        \item \[E(\bar{X})=E\left(\frac{\sum\limits_{i=1}^n X_i}{n}\right)=\frac{1}{n}E\left(\sum\limits_{i=1}^n X_i\right)=\frac{1}{n}\sum\limits_{i=1}^n E(X_i)=\frac{1}{n}\times n \times \mu=\mu.\]
+        \item \[\mathrm{Var}(\bar{X})=\mathrm{Var}\left(\frac{\sum\limits_{i=1}^n X_i}{n}\right)=\frac{1}{n^2}\mathrm{Var}\left(\sum\limits_{i=1}^n X_i\right)=\frac{1}{n^2}\sum\limits_{i=1}^n \mathrm{Var}(X_i)=\frac{1}{n^2}\times n \times \sigma^2=\frac{\sigma^2}{n}.\]
+        \item \begin{align*}
+            \sum_{i=1}^n (X_i-\bar{X})^2 & =\sum_{i=1}^n (X_i^2-2X_i\bar{X}+\bar{X}^2) = \sum_{i=1}^n X_i^2-2\bar{X}\sum_{i=1}^n X_i+n\bar{X}^2\\
+            & = \sum_{i=1}^n X_i^2-2\bar{X}n\bar{X}+n\bar{X}^2 = \sum_{i=1}^n X_i^2-n\bar{X}^2
+        \end{align*}
+        \item \begin{align*}
+            E(S^2)&=E\left(\frac{\sum\limits_{i=1}^n (X_i-\bar{X})^2}{n-1}\right) = \frac{1}{n-1}E\left(\sum\limits_{i=1}^n (X_i-\bar{X})^2\right)\\
+            & = \frac{1}{n-1}E\left(\sum_{i=1}^n X_i^2-n\bar{X}^2\right) = \frac{1}{n-1}\left[E\left(\sum_{i=1}^n X_i^2\right)-nE(\bar{X}^2)\right]\\
+            & = \frac{1}{n-1}\left(n\sigma^2+n\mu^2-n\times\frac{\sigma^2}{n}-n\mu^2\right) = \sigma^2
+        \end{align*}
+    \end{enumerate}
+    \item \pro
+    \begin{align*}
+        \mathrm{Cov}(X,Y)&=E\{[X-E(X)][Y-E(Y)]\}=E[XY-XE(Y)-YE(X)+E(X)E(Y)]\\
+        &=E(XY)-E(Y)E(X)-E(X)E(Y)+E(X)E(Y)=E(XY)-E(X)E(Y)
+    \end{align*}
+    \item \pro
+    \begin{enumerate}[label=\alph*)]
+        \item \[\mathrm{Cov}(X,Y)=E\{[X-E(X)][Y-E(Y)]\}=E\{[Y-E(Y)][X-E(X)]\}=\mathrm{Cov}(Y,X).\]
+        \item \[\mathrm{Cov}(X,X)=E\{[X-E(X)][X-E(X)]\}=E\{[X-E(X)]^2\}=\mathrm{Var}(X).\]
+        \item \[\mathrm{Cov}(cX,Y)=E\{[cX-E(cX)][Y-E(Y)]\}=E\{c[X-E(X)][Y-E(Y)]\}=c\mathrm{Cov}(X,Y).\]
+        \item \[\mathrm{Cov}(c,Y)=E\{[c-E(c)][Y-E(Y)]\}=E(0)=0.\]
+    \end{enumerate}
+    \item \sol
+    \begin{align*}
+        \mathrm{Cov}(X,Y)&=\mathrm{Cov}(aU+bV,cU+dV)=\mathrm{Cov}(aU,cU+dV)+\mathrm{Cov}(bV,cU+dV)\\
+        &=\mathrm{Cov}(aU,cU)+\mathrm{Cov}(aU,dV)+\mathrm{Cov}(bV,cU)+\mathrm{Cov}(bV,dV)\\
+        &=ac+bd
+    \end{align*}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $\mathrm{Cov}(X_1+X_2,X_3+X_4)=\mathrm{Cov}(X_1,X_3)+\mathrm{Cov}(X_1,X_4)+\mathrm{Cov}(X_2,X_3)+\mathrm{Cov}(X_2,X_4)=3+4+6+8=21$.
+        \item
+        \begin{align*}
+            \mathrm{Cov}(X_1+X_2+X_3,X_2+X_3+X_4)&=\mathrm{Cov}(X_1,X_2)+\mathrm{Cov}(X_1,X_3)+\mathrm{Cov}(X_1,X_4)\\
+            &\quad+\mathrm{Cov}(X_2,X_2)+\mathrm{Cov}(X_2,X_3)+\mathrm{Cov}(X_2,X_4)\\
+            &\quad+\mathrm{Cov}(X_3,X_2)+\mathrm{Cov}(X_3,X_3)+\mathrm{Cov}(X_3,X_4)\\
+            &=2+3+4+4+6+8+6+9+12=54
+        \end{align*}
+    \end{enumerate}
+    \item \sol\\
+    记$X_i$为第$i$时间段的变化量，且$X_i$与$X_j$相互独立$(i \neq j)$，易知：$\displaystyle Y=\sum_{i=1}^3 X_i$，则
+    \begin{align*}
+        E(X_1)&=1\times\frac{1}{2}-1\times\frac{1}{2}=0,\\
+        \mathrm{Var}(X_1)&=1^2\times\frac{1}{2}+(-1)^2\times\frac{1}{2}-0=1,\\
+        \mathrm{Cov}(X,Y)&=\mathrm{Cov}(X_1,X_1)=\mathrm{Var}(X_1)=1,\\
+        \mathrm{Cor}(X,Y)&=\frac{1}{\sqrt{1}\sqrt{3\cdot1}}=\frac{\sqrt{3}}{3}.
+    \end{align*}
+    \item \sol\\
+    不能. 因为此时$\displaystyle \mathrm{Cor}(X,Y)=\frac{2}{\sqrt{1}\sqrt{1}}=2 \notin [-1,1]$.
+    \item \pro
+    \begin{align*}
+        \sum_y h(y)P(Y=y) & = \sum_i \sum_{h(y)=h_i} h(y) P(Y=y)\\
+        & = \sum_i \sum_{h(y)=h_i} h_i P(Y=y)\\
+        & = \sum_i h_i \sum_{h(y)=h_i} P(Y=y)\\
+        & = \sum_i h_i P[h(Y)=h_i]
+    \end{align*}
+    \item \sol\\
+    $P(X=i)= F(i)-F(i^-)=F(i)-F(i-1)$.
+\end{enumerate}
+\clearpage

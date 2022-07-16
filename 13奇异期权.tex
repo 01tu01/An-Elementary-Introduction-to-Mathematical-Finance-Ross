@@ -1,0 +1,30 @@
+\section{奇异期权}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \pro\\
+    若$u \leq r$. 令时刻$y(y<t)$期权的价格为$s$. 相比在时刻$y$执行期权，在时刻$t$执行期权，在时刻$y$的期望收益为
+    \[\e^{-r(t-y)}[s\e^{r(t-y)}-K\e^{ut}]=s-K\e^{ut-r(t-y)} \geq s-K\e^{uy},\]
+    所以若$u \leq r$，那么永远不会提前执行这个看涨期权.
+    \item \omitted
+    \item \sol\\
+    详细过程见书，$\displaystyle E(V)=S(0)\frac{1-\e^{r(n+1)/N}}{1-\e^{r/N}}$.
+    \item \pro
+    \begin{enumerate}[label=\alph*)]
+        \item \begin{align*}
+            \mathrm{Var}(W) & = \mathrm{Cov}\left(Y+\sum_{i=1}^n c_iX_i,Y+\sum_{j=1}^n c_jX_j\right)\\
+            & = \mathrm{Cov}(Y,Y) + 2\mathrm{Cov}\left(Y,\sum_{j=1}^n c_jX_j\right)+\mathrm{Cov}\left(\sum_{i=1}^n c_iX_i,\sum_{j=1}^n c_jX_j\right)\\
+            &=\mathrm{Var}(Y)+2\sum_{i=1}^n c_i\mathrm{Cov}(Y,X_i)+\sum_{i=1}^n\sum_{j=1}^n c_ic_j \mathrm{Cov}(X_i,X_j)\\
+            &=\mathrm{Var}(Y)+2\sum_{i=1}^n c_i\mathrm{Cov}(Y,X_i)+\sum_{i=1}^nc_i^2 \mathrm{Cov}(X_i,X_i)+\sum_{i=1}^n\sum_{j \neq i} c_ic_j \mathrm{Cov}(X_i,X_j)\\
+            &=\mathrm{Var}(Y)+\sum_{i=1}^nc_i^2 \mathrm{Var}(X_i)+2\sum_{i=1}^n c_i\mathrm{Cov}(Y,X_i)
+        \end{align*}
+        \item 两边同时对$c_i$求偏导，并让偏导等于0，可得
+        \[2c_i\mathrm{Var}(X_i)+2\mathrm{Cov}(Y,X_i)=0 \Rightarrow c_i=-\frac{\mathrm{Cov}(Y,X_i)}{\mathrm{Var}(X_i)}.\]
+    \end{enumerate}
+    \item \omitted
+    \item \omitted
+    \item \sol\\
+    与13.8节类似，只是等式变成了
+    \[V_k(i)=\max\{su^id^{k-i} - K, pV_{k+1}(i + 1) + (1-p)W_{k+1}(i)\}.\]
+    \item \sol\\
+    障碍看涨期权的期望支付值以概率$p$乘以$u$，以概率$1-p$乘以$d$. 如果乘以$d$，则需要确认新的价格是否低于障碍值.
+\end{enumerate}
+\clearpage

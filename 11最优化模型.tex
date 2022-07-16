@@ -1,0 +1,126 @@
+\section{最优化模型}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \sol\\
+    设在$f_2$上投资$x$，在$f_1$上投资$6-x$，则要最大化
+    \[f(x)=2\ln(7-x)+\sqrt{x},\]
+    利用求导法可解得最优的$\displaystyle x=15-4\sqrt{11} \approx 1.73$，所以在整数金额投资时，第1种方案投资4，第2种方案投资2，最大回报为$2\ln 5+\sqrt{2}=4.63$.
+    \item \sol\\
+    令$\displaystyle V_1(x)=f_1(x)=\frac{10x}{1+x},y_1(x)=x$，因为
+    \[V_2(x)=\max_{0 \leq y \leq x} \{f_2(y)+V_1(x-y)\}=\max\left\{\sqrt{y}+\frac{10(x-y)}{1+x-y}\right\},\]
+    则有
+    \begin{align*}
+        &V_2(1)=5, &y_2(1)=0,\\
+        &V_2(2)=20/3, &y_2(2)=0,\\
+        &V_2(3)=23/3, & y_2(3)=1,\\
+        &V_2(4)=8.5, & y_2(4)=1,\\
+        &V_2(5)=9, & y_2(5)=1,\\
+        &V_2(6)=\sqrt{2}+8, & y_2(6)=2,\\
+        &V_2(7)=\sqrt{2}+25/3, & y_2(7)=2,\\
+        &V_2(8)=\sqrt{3}+25/3, & y_2(7)=3.
+    \end{align*}
+    % \begin{align*}
+    %     &V_2(1)=\max\{10/2,1\}=5, &y_2(1)=0,\\
+    %     &V_2(2)=\max\{20/3,1+5,\sqrt{2}\}=20/3, &y_2(2)=0,\\
+    %     &V_2(3)=\max\{30/4,1+20/3,\sqrt{2}+5,\sqrt{3}\}=23/3, & y_2(3)=1,\\
+    %     &V_2(4)=\max\{40/5,1+30/4,\sqrt{2}+20/3,\sqrt{3}+5,\sqrt{4}\}=8.5, & y_2(4)=1,\\
+    %     &V_2(5)=\max\{50/6,1+8,\sqrt{2}+7.5,\sqrt{3}+20/3,\sqrt{4}+5,\sqrt{5}\}=9, & y_2(5)=1,\\
+    %     &V_2(6)=\max\{60/7,1+50/6,\sqrt{2}+8,\sqrt{3}+30/4,\sqrt{4}+20/3,\sqrt{5}+5,\sqrt{6}\}=\sqrt{2}+8, & y_2(6)=2,\\
+    %     &V_2(7)=\max\{70/8,1+60/7,\sqrt{2}+50/6,\sqrt{3}+8,\sqrt{4}+30/4,\sqrt{5}+20/3,\sqrt{6}+5,\sqrt{7}\}=\sqrt{2}+25/3, & y_2(7)=2,\\
+    %     &V_2(8)=\max\{80/9,1+70/8,\sqrt{2}+60/7,\sqrt{3}+50/6,\sqrt{4}+8,\sqrt{5}+50/4,\sqrt{6}+40/3,\sqrt{7}+15,\sqrt{8}\}=\sqrt{3}+25/3, & y_2(7)=3.
+    % \end{align*}
+    继续计算可以得到
+    \[V_3(x)=\max_{0 \leq y \leq x} \{f_3(y)+V_2(x-y)\}=\max\left\{10(1-\e^{-y})+V_2(x-y)\right\},\]
+    利用
+    \begin{align*}
+        1-\e^{-1}&=0.632,1-\e^{-2}=0.865,1-\e^{-3}=0.950,1-\e^{-4}=0.982,\\
+        1-\e^{-5}&=0.993,1-\e^{-6}=0.998,1-\e^{-7}=0.999,1-\e^{-8}=1.000.
+    \end{align*}
+    有
+    \begin{align*}
+        V_3(8) & = \max\{10.065,6.32+9.748,8.65+9.414,9.5+9,\\
+        & \quad 9.82+8.5,9.93+7.667,9.98+6.667,9.99+5,10\}=18.50, y_3(8)=3.
+    \end{align*}
+    这样，投资8个单位金额可以得到的最大回报总和为18.50；投资到项目3中的最佳投资金额为$y_3(8)=3$；投资到项目2中的最佳投资金额为$y_2(5)=1$；投资到项目1中的最佳投资金额为$y_1(4)=4$.
+    \item \sol\\
+    令$x_i(j)$表示将总量$j$用来投资时，投资于项目$i$的最佳金额. 因为
+    \[\max\{f_1(1),f_2(1),f_3(1)\}=\max\{5,1,6.32\}=6.32,\]
+    则有$x_1(1)=0,x_2(1)=0,x_3(1)=1$.\\
+    由\[\max_i\{f_i[x_i(1)+1]-f_i[x_i(i)]\}=\max\{5,1,8.65-6.32\}=5,\]
+    有$x_1(2)=1,x_2(2)=0,x_3(2)=1$.\\
+    因为\[\max_i\{f_i[x_i(2)+1]-f_i[x_i(2)]\}=\max\{20/3-5,1,8.65-6.32\}=2.33,\]
+    有$x_1(3)=1,x_2(3)=0,x_3(3)=2$.\\
+    因为\[\max_i\{f_i[x_i(3)+1]-f_i[x_i(3)]\}=\max\{20/3-5,1,9.50-8.65\}=1.67,\]
+    有$x_1(4)=2,x_2(4)=0,x_3(4)=2$.\\
+    因为\[\max_i\{f_i[x_i(4)+1]-f_i[x_i(4)]\}=\max\{30/4-20/3,1,9.50-8.65\}=1,\]
+    有$x_1(5)=2,x_2(5)=1,x_3(5)=2$.\\
+    因为\[\max_i\{f_i[x_i(5)+1]-f_i[x_i(5)]\}=\max\{30/4-20/3,0.414,9.50-8.65\}=0.85,\]
+    有$x_1(6)=2,x_2(6)=1,x_3(6)=3$.\\
+    现在从\[\max_i\{f_i[x_i(6)+1]-f_i[x_i(6)]\}=\max\{30/4-20/3,0.414,9.82-9.50\}=0.83,\]
+    有$x_1(7)=3,x_2(7)=1,x_3(7)=3$.\\
+    最后由\[\max_i\{f_i[x_i(7)+1]-f_i[x_i(7)]\}=\max\{8-30/4,0.414,9.82-9.50\}=0.50,\]
+    得到$x_1(8)=4,x_2(8)=1,x_3(8)=3$.\\
+    因此，最大回报为$6.32+5+2.33+1.67+1+0.85+0.83+0.50=18.50$.
+    \item \pro\\
+    当$n=1$时，结论显然成立. 当$n=2$，即只有2个项目时，假设在最优投资策略下项目$i$投资金额为$k$，项目$j$投资金额为$r$，则有
+    \[f_i(k)+f_j(r) \geq f_i(k-1)+f_j(r+1) \Rightarrow f_i(k)-f_i(k-1) \geq f_j(r+1)-f_j(r),\]
+    而由于$f_i(x)$是凸的，则
+    \[f_i(k+1)-f_i(k) \geq f_i(k)-f_i(k-1), \quad f_j(r+1)-f_j(r) \geq f_j(r)-f_j(r-1),\]
+    所以\begin{align*}
+        f_i(k+1)-f_i(k) & \geq f_i(k)-f_i(k-1) \geq f_j(r+1)-f_j(r)\\
+        & \geq f_j(r)-f_j(r-1) \Rightarrow f_i(k+1)+f_j(r-1) \geq f_i(k)+f_j(r)
+    \end{align*}
+    继续递推，得\[f_i(k+r)+f_j(0) \geq f_i(k)+f_j(r),\]
+    即存在最优投资策略将全部资金投资于一个项目.\\
+    若当$n=p$时，结论成立，则当$n=p+1$时，假设$n=p$时，全部资金投资于项目$i$，则在项目$i$与项目$p+1$两者间，与$n=2$时类似，同理可得，必存在最优投资策略将全部资金投资于一个项目. 综上，证毕.
+    \item \pro
+    \begin{enumerate}[label=\alph*)]
+        \item 假设这$n$个变量中有某两个值分别为$k+i,k-j$，假设$k+i+1,k-j+1$对应的函数值比前者大，则
+        \[f(k+i)+f(k-j) \leq f(k+i+1)+f(k-j+1) \Rightarrow f(k+i)-f(k+i+1) \leq f(k-j+1)-f(k-j),\]
+        这也符合凹函数的性质，说明假设正确. 因此当变量取值越来越靠近时，函数值越来越大，即最大值是$kf(n)$.
+        \item 根据上一题的结论，最大值为$f(kn)$.
+    \end{enumerate}
+    \item \sol \\
+    继续可得
+    \begin{align*}
+        V(19)&=\max\{7+V(14),12+V(10),22+V(4)\}=26, & i(19)=1\text{或}2,\\
+        V(20)&=\max\{7+V(15),12+V(11),22+V(5)\}=29, & i(20)=1\text{或}3,\\
+        V(21)&=\max\{7+V(16),12+V(12),22+V(6)\}=29, & i(21)=1\text{或}3,\\
+        V(22)&=\max\{7+V(17),12+V(13),22+V(7)\}=29, & i(22)=1\text{或}3,\\
+        V(23)&=\max\{7+V(18),12+V(14),22+V(8)\}=31, & i(23)=1\text{或}2,\\
+        V(24)&=\max\{7+V(19),12+V(15),22+V(9)\}=34, & i(24)=2\text{或}3,\\
+        V(25)&=\max\{7+V(20),12+V(16),22+V(10)\}=36, & i(25)=1\text{或}3.
+    \end{align*}
+    所以对于资金25，最佳的投资策略是分别购买一份项目$i(25)=1,i(20)=1,i(15)=3$或$i(25)=1,i(20)=3,i(5)=1$或$i(25)=3,i(10)=1,i(5)=1$. 这就是说，如果有资金25，那么最佳的投资是购买2份项目1和1份项目3，可以得到的回报总额为36.
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item $V_1(x)=\sqrt{x}$.
+        \item $\displaystyle V_2(x)=\max_{0 \leq y \leq x}\left\{\sqrt{y}+V_1[(1+r)(x-y)]\right\}=\max_{0 \leq y \leq x}\left\{\sqrt{y}+\sqrt{(1+r)(x-y)}\right\}$.
+        \item $\displaystyle V_n(x)=\max_{0 \leq y \leq x}\left\{\sqrt{y}+V_{n-1}[(1+r)(x-y)]\right\}$.
+        \item 先改写$V_2(x)$的表达式，并令$\beta = 1+r$，则
+        \[V_2(x)=\max_{0 \leq \alpha \leq 1} \left\{\sqrt{\alpha x}+\sqrt{\beta(x-\alpha x)}\right\}=\sqrt{x} \max_{0 \leq \alpha \leq 1} \left\{\sqrt{\alpha}+\sqrt{\beta(1-\alpha)}\right\},\]
+        记$\displaystyle f(\alpha)=\sqrt{\alpha}+\sqrt{\beta(1-\alpha)}$，则
+        \[f'(\alpha)=\frac{1}{2}\alpha^{-1/2}-\sqrt{\beta}\frac{1}{2}(1-\alpha)^{-1/2}=0 \Rightarrow \alpha=\frac{1}{1+\beta},\]
+        所以$\displaystyle V_2(x)=\sqrt{(1+\beta)x}$. 于是\[V_3(x)=\max_{0 \leq \alpha \leq 1} \left\{\sqrt{\alpha x}+V_2[\beta(1-\alpha)x]\right\}=\sqrt{x} \max_{0 \leq \alpha \leq 1} \left\{\sqrt{\alpha}+\sqrt{\beta(1+\beta)(1-\alpha)}\right\},\]
+        同理可得，满足条件的$\displaystyle \alpha=\frac{1}{1+\beta(1+\beta)}$，此时$\displaystyle V_3(x)=\sqrt{(1+\beta+\beta^2)x}$. 依此类推，
+        \[V_n=\sqrt{x\sum_{i=1}^{n} \beta^{i-1}},\]
+        所以最佳的投资额和消费额为$\displaystyle \frac{1}{\sum\limits_{i=1}^{n} (1+r)^{i-1}}$.
+    \end{enumerate}
+    \item \sol
+    \begin{enumerate}[label=\alph*)]
+        \item \[V(S)=\max_{i \in S} \left\{R_i\left(x_i+\sum_{k \notin S}x_k\right)+V(S-i)\right\}.\]
+        \item 首先假设$S$是一个单点集，进行求解；然后当它是两点集时，再求解，依此类推.
+    \end{enumerate}
+    \item \sol\\
+    在第一种投资中，若投资$x$，则承担$0.2x$的风险，其期望效益为$\ln(x)+0.6\ln(1.2)+0.4\ln(0.8)=\ln(x)+0.0201$. 在第二种投资中，投资$x$，若赢的概率为0.4则不承担风险，若赢的概率为0.8则承担$0.6x$的风险，其期望效益为$\ln(x)+0.3[0.8\ln(1.6)+0.2\ln(0.4)]=\ln(x)+0.0578$. 所以选择第二种投资.
+    \item \pro\\
+    (11-7)式：即证$\sqrt{149x}=\displaystyle \max_{0 \leq y \leq x}\left\{10\sqrt{y}+7\sqrt{x-y}\right\}=\sqrt{x}\max_{0 \leq \alpha \leq 1}\left\{10\sqrt{\alpha}+7\sqrt{1-\alpha}\right\}$，\\
+    令$f(\alpha)=10\sqrt{\alpha}+7\sqrt{1-\alpha}$，则
+    \[f'(\alpha)=5\alpha^{-1/2}-\frac{7}{2}(1-\alpha)^{-1/2}=0 \Rightarrow \alpha=\frac{100}{149},\]
+    所以\[\max_{0 \leq \alpha \leq 1}\left\{10\sqrt{\alpha}+7\sqrt{1-\alpha}\right\}=10\times\frac{10}{\sqrt{149}}+7\times\frac{7}{\sqrt{149}}=\sqrt{149},\]
+    即$\displaystyle \max_{0 \leq y \leq x}\left\{10\sqrt{y}+7\sqrt{x-y}\right\}=\sqrt{149x}$.\\
+    (11-8)式：$\displaystyle y_2(x)=\alpha x=\frac{100}{149}x$.
+    \item \pro\\
+    为了确定可以到达节点$j$的最短时间，要先确定到达节点$j$前到达的节点. 若是节点$i$，设在时刻$s$到达节点$i$，则到达节点$j$的时间为$s+t_s(i,j)$，而$s+t_s(i,j)$关于$s$递增，所以这就是最短时间，所以
+    \[T(j)=\min_i\left\{T(i)+t_{T(i)}(i,j)\right\}.\]
+\end{enumerate}
+\clearpage

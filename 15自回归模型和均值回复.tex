@@ -1,0 +1,38 @@
+\section{自回归模型和均值回复}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \sol\\
+    因为$\displaystyle \frac{\sigma^2}{N}=0.2, a=\frac{\mu}{N}=5$，则$\displaystyle\mu=\frac{1260}{365},\sigma^2=\frac{50.4}{365}$，则
+    \[P[L(n+10)>L(n)]=P\left(Z>\frac{0-1260/365 \times 10/365}{\sqrt{50.4/365 \times 10/365}}\right)=1-\Phi(-1.5377)=0.9379.\]
+    \item \sol\\
+    因为$L(n) \sim N[m(n), v(n)]$，其中
+    \[m(n)=\frac{a(1-b^n)}{1-b}+b^n L(0),v(n)=\frac{\sigma^2(1-b^{2n})}{N(1-b^2)},\]
+    并且有\[a=1.2,b=0.7,n=60,\frac{\sigma^2}{N}=0.1,r=0.1,K=50,\]
+    \begin{enumerate}[label=\alph*)]
+        \item 此时$g=L(0)=48$，则
+        \[m(60)=\frac{1.2(1-0.7^{60})}{1-0.7}+0.7^{60}\times48=4,v(60)=\frac{0.1(1-0.7^{120})}{1-0.7^2}=\frac{10}{51},h=\frac{\ln K-m(60)}{\sqrt{v(60)}}=-0.1987,\]
+        而$\Phi[\sqrt{v(n)}-h]=\Phi(0.6415)=0.7394,\Phi(-h)=\Phi(0.1987)=0.5788$，所以
+        \[E=\e^{-rn/N}\{\e^{m(n)+v(n)/2}\Phi[\sqrt{v(n)}-h]-K\Phi(-h)\}=15.2214.\]
+        \item 此时$g=L(0)=50$，则
+        \[m(60)=\frac{1.2(1-0.7^{60})}{1-0.7}+0.7^{60}\times50=4,v(60)=\frac{0.1(1-0.7^{120})}{1-0.7^2}=\frac{10}{51},h=\frac{\ln K-m(60)}{\sqrt{v(60)}}=-0.1987,\]
+        而$\Phi[\sqrt{v(n)}-h]=\Phi(0.6415)=0.7394,\Phi(-h)=\Phi(0.1987)=0.5788$，所以
+        \[E=\e^{-rn/N}\{\e^{m(n)+v(n)/2}\Phi[\sqrt{v(n)}-h]-K\Phi(-h)\}=15.2214.\]
+        \item 此时$g=L(0)=52$，则
+        \[m(60)=\frac{1.2(1-0.7^{60})}{1-0.7}+0.7^{60}\times52=4,v(60)=\frac{0.1(1-0.7^{120})}{1-0.7^2}=\frac{10}{51},h=\frac{\ln K-m(60)}{\sqrt{v(60)}}=-0.1987,\]
+        而$\Phi[\sqrt{v(n)}-h]=\Phi(0.6415)=0.7394,\Phi(-h)=\Phi(0.1987)=0.5788$，所以
+        \[E=\e^{-rn/N}\{\e^{m(n)+v(n)/2}\Phi[\sqrt{v(n)}-h]-K\Phi(-h)\}=15.2214.\]
+    \end{enumerate}
+    \item \omitted
+    \item \sol\\
+    会回复到
+    \[s^*=\exp\left(\frac{a+\sigma^2/2N}{1-b}\right)=64.50.\]
+    \item \pro\\
+    因为$s>s^*$，所以
+    \[s>\exp\left(\frac{a+\sigma^2/2N}{1-b}\right) \Rightarrow s^{1-b} > \left[\exp\left(\frac{a+\sigma^2/2N}{1-b}\right)\right]^{1-b}=\e^{a+\sigma^2/2N} \Rightarrow s>\e^{a+\sigma^2/2N}s^b,\]
+    即$E[S_d(n)]<s$. 同时
+    \[s>\exp\left(\frac{a+\sigma^2/2N}{1-b}\right) \Rightarrow s^b > \exp\left(\frac{b(a+\sigma^2/2N)}{1-b}\right)=\exp\left[\frac{a+\sigma^2/2N}{1-b} - (a+\sigma^2/2N)\right],\]
+    所以\[E[S_d(n)]=\e^{a+\sigma^2/2N}s^b>\exp\left[\frac{a+\sigma^2/2N}{1-b} - (a+\sigma^2/2N)+(a+\sigma^2/2N)\right]=\exp\left(\frac{a+\sigma^2/2N}{1-b}\right)=s^*,\]
+    综上\[s^* < E[S_d(n)] < s.\]
+    \item \pro\\
+    对上一题的不等式，两边取极限$\displaystyle \lim_{s \to s^*}$，利用夹逼定理，可立得\[E[S_d(n)]=s^*.\]
+\end{enumerate}
+\clearpage

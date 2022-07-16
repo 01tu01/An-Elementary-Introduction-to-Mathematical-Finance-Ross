@@ -1,0 +1,53 @@
+\section{随机序关系}
+\begin{enumerate}[label=\arabic{section}.\arabic*]
+    \item \pro\\
+    利用一阶随机占优的定义：
+    \begin{align*}
+        & P(X_1 \geq 0) = 1 = P(X_2 \geq 0),\\
+        & P(X_1 \geq 1) = p_1 \geq P(X_2 \geq 1) = p_2,
+    \end{align*}
+    所以$X_1 \geq_{st} X_2$.
+    \item \pro\\
+    令$\displaystyle I_j=\begin{cases}
+        1, & \text{概率为}p \\ 0, & \text{概率为}1-p
+    \end{cases}$，而$\displaystyle \sum_{j=1}^n I_j = X(n,p) \sim B(n,p)$，则
+    \[X(n+1,p)=\sum_{j=1}^{n+1} I_j \geq \sum_{j=1}^n I_j=X(n,p),\]
+    所以$X(n+1,p) \geq_{st} X(n,p)$.
+    \item \pro\\
+    令$\displaystyle I_j=\begin{cases}
+        1, & \text{概率为}p_1 \\ 0, & \text{概率为}1-p_1
+    \end{cases}, J_j=\begin{cases}
+        1, & \displaystyle\text{概率为}\frac{p_2}{p_1} \\ 0, & \displaystyle\text{概率为}1-\frac{p_2}{p_1}
+    \end{cases}$，\\
+    而$\displaystyle \sum_{j=1}^n I_j = X(n,p_1) \sim B(n,p_1), \sum_{j=1}^n I_jJ_j=X(n,p_2) \sim B(n,p_2)$，则
+    \[X(n,p_2)=\sum_{j=1}^{n} I_jJ_j \leq \sum_{j=1}^n I_j=X(n,p_1),\]
+    所以$X(n,p_1) \geq_{st} X(n,p_2)$.
+    \item \pro\\
+    利用似然比大于的定义：
+    \[\frac{f_1(x)}{f_2(x)}=\frac{\exp\left[-\frac{(x-\mu_1)^2}{2\sigma^2}\right]}{\exp\left[-\frac{(x-\mu_2)^2}{2\sigma^2}\right]}=\exp\left\{\frac{1}{2\sigma^2}\left[(x-\mu_2)^2-(x-\mu_1)^2\right]\right\}=\exp\left\{\frac{1}{2\sigma^2}\left[2(\mu_1-\mu_2)x+\mu_2^2-\mu_1^2\right]\right\},\]
+    因为$\mu_1 \geq \mu_2$，所以$\displaystyle \frac{f_1(x)}{f_2(x)}$关于$x$单调递增，即$X_1 \geq_{lr} X_2$.
+    \item \pro\\
+    利用似然比大于的定义：
+    \[\frac{f_1(x)}{f_2(x)}=\frac{\lambda_1\e^{-\lambda_1x}}{\lambda_2\e^{-\lambda_2x}}=\frac{\lambda_1}{\lambda_2}\e^{(\lambda_2-\lambda_1)x},\]
+    因为$\lambda_1 \leq \lambda_2$，所以$\displaystyle \frac{f_1(x)}{f_2(x)}$关于$x$单调递增，即$X_1 \geq_{lr} X_2$.
+    \item \pro\\
+    利用似然比大于的定义：
+    \[\frac{P(X_1=x)}{P(X_2=x)}=\frac{\e^{-\lambda_1}\lambda_1^x/x!}{\e^{-\lambda_2}\lambda_2^x/x!}=\e^{(\lambda_2-\lambda_1)}\left(\frac{\lambda_1}{\lambda_2}\right)^x,\]
+    因为$\lambda_1 \geq \lambda_2$，所以$\displaystyle \frac{P(X_1=x)}{P(X_2=x)}$关于$x$单调递增，即$X_1 \geq_{lr} X_2$.
+    \item \pro\\
+    有詹森不等式：若$u(X)$是凹函数，则
+    \[E[u(X)] \geq u[E(X)],\]
+    因为$X$是特殊的凹函数，则令$u(X)=X$，所以
+    \[E[u(X)]=E(X) \geq u[E(X)]=u(X)=X,\]
+    即$E(X) \geq_{icv} X$.
+    \item \pro\\
+    因为$h(x)$是凹函数，则$h''<0$，所以$h'$是减函数，有
+    \[\int_{\sigma_1}^{\sigma_2} h'\,\d x \leq \int_{-\sigma_2}^{-\sigma_1} h'\,\d x \Rightarrow h(\sigma_2)-h(\sigma_1) \leq h(-\sigma_1)-h(-\sigma_2) \Rightarrow h(-\sigma_1)+h(\sigma_1) \geq h(-\sigma_2)+h(\sigma_2).\]
+    \item \pro\\
+    令$h$也是一个递增的凹函数，取$f(x)=h[g(x)]$，显然$f(x)$是增函数，同时
+    \[f'(x)=h'[g(x)]g'(x),f''(x)=h''[g(x)][g'(x)]^2+h'[g(x)]g''(x),\]
+    因为$h'',g''<0$，所以\[f''(x)<0,\]
+    因此$f(x)$是递增的凹函数. 因为$X \geq_{icv} Y$，则
+    \[E[f(X)] \geq E[f(Y)] \Rightarrow E[h(g(X))] \geq E[h(g(Y))] \Rightarrow g(X) \geq_{icv} g(Y).\]
+\end{enumerate}
+\clearpage
